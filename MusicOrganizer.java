@@ -4,7 +4,9 @@ import java.util.ArrayList;
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
  * 
- * @author David J. Barnes and Michael Kölling
+ * @author Joseph Patti
+ * test each sound and they play
+ * use java . rand and a loop that used amount in array list.
  * @version 2016.02.29
  */
 public class MusicOrganizer
@@ -21,7 +23,7 @@ public class MusicOrganizer
      */
     public MusicOrganizer()
     {
-        tracks = new ArrayList<>();
+        tracks = new ArrayList<>();/// might need this for random
         player = new MusicPlayer();
         reader = new TrackReader();
         readLibrary("../audio");
