@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * use java . rand and a loop that used amount in array list.
  * @version 2016.02.29
  */
+import java.util.Random;
 public class MusicOrganizer
 {
     // An ArrayList for storing music tracks.
@@ -17,6 +18,8 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+    // random set up
+    private Random Shuffle; 
 
     /**
      * Create a MusicOrganizer
@@ -29,7 +32,12 @@ public class MusicOrganizer
         readLibrary("../audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
+        /// random here
+        /// here will be the randon obkect
+        Shuffle = new Random();
     }
+     
+    
     
     /**
      * Add a track file to the collection.
@@ -137,8 +145,48 @@ public class MusicOrganizer
         player.stop();
     }
 
+    
     /**
-     * Determine whether the given index is valid for the collection.
+    Shuffle start here
+    */
+   public void ShuffleMania() {
+       for (int A = tracks.size() -1; A > 0; A--) 
+       {
+           int B = Shuffle.nextInt(A + 1); // using shuffle stuff
+           Track temp = tracks.get(A);
+           tracks.set(A, tracks.get(B));
+           tracks.set(B,temp);
+        }
+        System.out.println("Tracks have sufferd shufflMania!!!!!!!!.");
+    
+           
+       
+   }
+   
+   /**
+   Here will be a method to play a random track from tract/ can
+   use stuff from shuffle
+   /**
+    * 
+    */
+   public void ShufflePLayOne() {
+       
+       if (tracks.size() == 0) {
+             System.out.println("No tracks to shuffle buddy.");
+        return;
+        
+    }
+    int randomIndex = Shuffle.nextInt(tracks.size());
+    Track randomTrack = tracks.get(randomIndex);
+    // play track here
+    player.playSample(randomTrack.getFilename());
+    
+       
+   }
+   
+    
+    
+     /** Determine whether the given index is valid for the collection.
      * Print an error message if it is not.
      * @param index The index to be checked.
      * @return true if the index is valid, false otherwise.
