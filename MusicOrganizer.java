@@ -159,6 +159,13 @@ public class MusicOrganizer
            tracks.set(B,temp);
         }
         System.out.println("Tracks have sufferd shufflMania!!!!!!!!.");
+        
+         // Play each track in the shuffled list
+    for (Track track : tracks) {
+        player.playSample(track.getFilename());
+        System.out.println("Now playing (shuffled): " + track.getArtist() + " - " + track.getTitle());
+        
+    }
     
            
        
